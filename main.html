@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subject Marks Calculator</title>
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <link rel="stylesheet" href="style.css"/> 
+</head> 
+
+
+<body>
+   <div class="background">
+    <div class="container">
+     <div class="screen">
+      <div class="screen-body">
+        <div class="screen-body-item left">
+          <div class="app-title">
+            <div class="animated infinite pulse">
+              Student <br> Grade <br> Calculator
+            </div>
+          </div>
+        </div>
+        <div class="screen-body-item">
+          <div class="app-form">
+            <div class="app-form-group">
+              <input type="text" class="app-form-control" placeholder="SUBJECT-1" id="s1">
+            </div>
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="SUBJECT-2" id="s2">
+            </div>
+             <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="SUBJECT-3" id="s3">
+            </div>
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="SUBJECT-4" id="s4" >
+            </div>
+            <div class="app-form-group">
+              <input  type="text"  class="app-form-control"   placeholder="SUBJECT-5" id="s5" >
+            </div>
+            <div > 
+              <input type="button" name="" value="showPercentage" class="app-form-button" onclick= "calcy()">
+            </div>  
+            <div > 
+              <input type="button" name="" value="resetMarks" class="app-form-button" onclick= "reset()">
+            </div>           
+          </div>
+      </div>
+    </div>
+      <div class="app-form-group showdata">
+              <p id="showData" >  </p>
+     </div>
+  </div>
+</div>
+ <script> 
+   const calcy = () => {
+  let sub1 = document.getElementById('s1').value;
+  let sub2 = document.getElementById('s2').value;
+  let sub3 = document.getElementById('s3').value;
+  let sub4 = document.getElementById('s4').value;
+  let sub5 = document.getElementById('s5').value;
+  let grades="";
+
+  //TOTAL GRADES
+
+  let totalgrades = parseFloat(sub1) +parseFloat(sub2) + parseFloat(sub3) + parseFloat(sub4) +parseFloat(sub5) ;
+  alert("Your Total Score is:" + totalgrades);
+
+  // PERCENTAGE
+
+  let percent = (totalgrades/500)*100;
+  alert(percent);
+
+  debugger;
+
+  if (percent >=80 && percent <=100)
+  {
+    grades='A';
+  }
+  else if(percent >= 70 && percent < 80)
+  {
+    grades='B';
+  }
+  else if(percent >=60 && percent < 70)
+  {
+    grades='C';
+  }
+  else if(percent >50 && percent < 60)
+  {
+    grades='D';
+  }
+  else
+  {
+    grades="F";
+  }
+
+  if(percent > 49.5)
+  {
+    document.getElementById('showData').innerHTML = ` Out of 500 your total is  ${totalgrades} and percentage is ${percent}%. <br> Your grade is ${grades}. You are Pass. `
+  }
+  else{
+    document.getElementById('showData').innerHTML = ` Out of 500 your total is  ${totalgrades} and percentage is ${percent}%. <br> Your grade is ${grades}. You are Fail. `
+
+  }
+}
+
+const reset = () =>
+{
+  let sub1 = document.getElementById('s1').value="";
+  let sub2 = document.getElementById('s2').value="";
+  let sub3 = document.getElementById('s3').value="";
+  let sub4 = document.getElementById('s4').value="";
+  let sub5 = document.getElementById('s5').value="";
+
+  document.getElementById('showData').innerHTML="";
+}
+
+
+  </script>
+
+</body>
+</html>
